@@ -1,0 +1,759 @@
+:root {
+--hue:320deg; /* change hue of picture (320deg) */
+}
+* {
+box-sizing:border-box;
+}
+html {
+background:#788;
+}
+
+#canvas {
+position:relative;
+width:600px;
+height:400px;
+background:radial-gradient(circle at 60% 50%, skyblue, rgba(0,0,0,.5)), #6e8a9f;
+/*   #7ba9b9 */
+/*   filter:hue-rotate(var(--hue)); */
+transform-origin:top center;
+transform:scale(1.5);
+margin:0 auto;
+box-shadow:0 5px 10px rgba(0,0,0,.4);
+border:20px solid white;
+overflow:hidden;
+}
+
+#canvas:after { 
+content:'';
+position:absolute;
+left:-20px;
+top:-20px;
+width:inherit;
+height:inherit;
+background:#435899;
+mix-blend-mode:overlay;
+border:20px solid beige;
+box-sizing:border-box; 
+opacity:0;
+}
+
+#canvas div {
+position:absolute;
+}
+.far_distance {
+width:112px;
+height:25px;
+background:linear-gradient(to bottom, #5a899f 35%, #76a480 35%);
+right:0;
+top:62%;
+clip-path: polygon(0% 15%, 15% 0%, 25% 15%, 100% 15%, 100% 100%, 0% 100%);
+}
+.far_distance:after {
+content:'';
+width:25px;
+height:2px;
+border-radius:50%;
+border-top:2px dotted #4c745a;
+position:absolute;
+top:30%;
+left:12.5%;
+}
+#castle_box {
+width:100%;
+height:100%;
+position:relative;
+transform-origin:top center;
+transform:scaleX(.75);
+margin-top:-10px;
+margin-left:20px;
+}
+.castle_base {
+width:50%;
+height:60%;
+background:linear-gradient(to right,#5e91a8 15%, #598ca7 15%, #598ca7 41%, transparent 41%), lightblue;
+/*   background:lightblue; */
+left:30%;
+bottom:0px;
+clip-path:polygon(0% 30%, 6% 32%, 9% 33%, 12% 32%, 15% 33%, 15% 30%, 15% 27%, 16% 23%, 17% 27%, 17% 30%, 20% 30%, 30% 24%, 30% 20%, 29% 20%, 31% 10%, 33% 20%, 32% 20%, 32% 23%, 40% 18%, 52% 10%, 77% 10%, 100% 37%, 100% 100%, 0% 100%);
+}
+
+.tower {
+width:40%;
+height:80%;
+background:linear-gradient(to bottom, #375697 10%, transparent 10%, transparent 14%, rgba(0,0,0,.25) 14%, rgba(0,0,0,.25) 15%, transparent 15%), linear-gradient(to right, rgba(0,0,0,.13) 3%, transparent 3%), lightblue;
+bottom:0;
+clip-path:polygon(2% 100%, 2% 14%, 0% 14%, 0% 10%, 2% 10%, 5% 0%, 8% 10%, 10% 10%, 10% 14%, 8% 14%, 8% 100%);
+}
+
+.tower_window {
+width:2%;
+height:3%;
+background:rgba(0,0,0,.25);
+position:absolute;
+left:4.25%;
+top:20%;
+border-radius:50% 50% 0 0;
+}
+.tower_window:nth-child(2) {
+top:27%;
+}
+.tower_window:nth-child(3) {
+top:34%;
+}
+.tower_accent {
+width:6%;
+height:2%;
+background:linear-gradient(to right, #375697 33%, transparent 33%, transparent 66%, #375697 66%);
+top:10%;
+left:2%;
+}
+
+.tower.one {
+height:83%;
+left:45%;
+}
+.tower.two {
+height:77%;
+left:52%;
+}
+.tower.three {
+height:90%;
+width:80%;
+left:55%;
+}
+.tower.four {
+height:85%;
+left:62%;
+}
+.tower.five {
+height:75%;
+left:67%;
+}
+.tower.six {
+height:58%;
+width:80%;
+left:77%;
+}
+
+/* background towers */
+.tower.seven div, .tower.eight div, .tower.nine div {
+opacity:0;
+}
+.tower.seven, .tower.eight, .tower.nine {
+/*   box-shadow:inset 0 0 100px 100px #598fab; */
+opacity:.65;
+}
+.tower.seven {
+height:70%;
+width:100%;
+left:45%;  
+}
+.tower.eight {
+height:70%;
+width:100%;
+left:59%;
+}
+.tower.nine {
+height:65%;
+width:100%;
+left:70%;
+}
+
+.near_hill {
+width:100%;
+height:60px;
+background:linear-gradient(to right, #b7ce3f 33%, #7c9e48 33%, #7c9e48 50%, #8fb260 50%, #8fb260 70%,  #7c9e48 70%,  #9cbb5e 70%);
+bottom:0;
+transform:skewX(45deg);
+}
+.left_hillside {
+width:130px;
+height:25px;
+background:#8aaa5f;
+left:30%;
+top:61%;
+clip-path:polygon(0% 10%, 20% 0%, 25% 0%, 75% 50%, 100% 100%, 0% 100%);
+}
+.gray_hillside {
+width:205px;
+height:50px;
+background:#54747b;
+left:30%;
+top:65%;
+clip-path:polygon(0% 50%, 50% 10%, 65% 20%, 78% 0%, 100% 0%, 100% 63%, 90% 85%, 0% 85%);
+}
+
+.blue_hillside {
+width:175px;
+height:50px;
+background:#5a959d;
+left:58%;
+top:59.75%;
+clip-path:polygon(5% 0%, 25% 0%, 45% 30%, 60% 55%, 100% 75%, 75% 70%, 50% 80%, 27% 100%, 25% 60%, 0% 40%)
+}
+
+.lightgreen_with_dots {
+width:70px;
+height:50px;
+background:#8aaa5f;
+left:59.5%;
+top:50%;
+clip-path:polygon(5% 0%, 85% 16%, 100% 100%, 50% 80%, 0% 70%)
+}
+.lightgreen_with_dots:after {
+content:'';
+width:100%;
+height:100%;
+background:radial-gradient(circle, #557e76 2px, transparent 2px);
+background-size:11px 11px;
+background-position:0 7px;
+position:absolute;
+left:0;
+top:0;
+transform:rotate(10deg);
+}
+
+.right_hillside {
+width:100px;
+height:100px;
+background:#5a8672;
+left:70%;
+top:53%;
+clip-path:polygon(0% 0%, 2% 0%, 50% 38%, 90% 54%, 50% 60%, 10% 39%)
+}
+.right_hillside:before {
+content:'';
+width:2px;
+height:30px;
+/*   background:#4c745a; */
+border-right:3px dotted #4c745a;
+position:absolute;
+left:20%;
+top:12%;
+transform:rotate(-50deg);
+border-radius:50%;
+}
+.right_hillside:after {
+content:'';
+width:2px;
+height:15px;
+border-right:2px dotted #4c745a;
+position:absolute;
+left:53%;
+top:42%;
+transform:rotate(-70deg);
+border-radius:50%;
+}
+
+.dot {
+width:10px;
+height:10px;
+border-radius:50% 45% 25% 35%;
+}
+.darkgreen {
+background:#394d4b;
+}
+.dot.darkgreen.one {
+left:50%;
+top:53.5%;
+transform:scale(.5);
+}
+
+.dot.darkgreen.two {
+left:45.5%;
+top:56.5%;
+transform:scale(.9);
+}
+.dot.darkgreen.three {
+left:41%;
+top:59.5%;
+transform:scale(.8);
+}
+.dot.darkgreen.four {
+left:38%;
+top:60.5%;
+transform:scale(.7);
+}
+.dot.darkgreen.five {
+left:70%;
+top:52%;
+}
+.dot.darkgreen.six {
+left:72.5%;
+top:55%;
+transform:scale(.9);
+}
+.dot.darkgreen.seven {
+left:76%;
+top:60%;
+transform:scale(.7);
+}
+.dot.darkgreen.eight {
+left:80%;
+top:64%;
+transform:scale(.5);
+}
+
+.small_tree {
+width:10px;
+height:10px;
+background:#3d6149;
+border-radius:50%;  
+transform-origin:bottom center;
+}
+.small_tree:after {
+content:'';
+width:1px;
+height:7px;
+background:#3d6149;
+position:absolute;
+top:100%;
+left:4px;  
+}
+
+.small_tree.one {
+left:45%;
+top:72%;
+}
+.small_tree.two {
+left:49%;
+top:71.5%;
+}
+.small_tree.three {
+left:53%;
+top:72%;
+}
+.small_tree.four {
+left:57%;
+top:72.5%;
+}
+.small_tree.five {
+left:61%;
+top:72%;
+}
+.small_tree.six {
+left:65%;
+top:70%;
+}
+.small_tree.seven {
+left:69%;
+top:68%;
+transform:scale(.85);
+}
+.small_tree.eight {
+left:73%;
+top:67%;
+transform:scale(.7);
+}
+.small_tree.nine {
+left:77%;
+top:66.5%;
+transform:scale(.55);
+}
+.small_tree.ten {
+left:81%;
+top:66%;
+transform:scale(.4);
+}
+
+
+.line_of_trees {
+width:100%;
+height:50px;
+background:radial-gradient(circle,#628042 10px, transparent 10px), linear-gradient(to right, transparent 24px, #363f3e 24px, #363f3e 26px, transparent 26px);
+background-size:50px 25px;
+background-repeat:repeat-x;
+background-position:0 0, 0 10px;
+bottom:43px;
+transform:scale(.85);
+}
+
+.tree {
+width:25px;
+height:25px;
+/*   background:radial-gradient(circle,gray 2px, transparent 2px), #3e4a48; */
+background:#3e4a48;
+background-size:5px 5px;
+border-radius:50%;  
+position:relative !important;
+display:inline-block;
+margin:0 10.5px
+}
+.tree:before {
+content:'';
+width:105%;
+height:105%;
+background:radial-gradient(circle,#7f9f3c 2px, transparent 2px);
+background-size:5px 5px;
+background-position:2px 2px;
+position:absolute;
+left:-2.5%;
+top:-2.5%;
+transform:rotate(60deg);
+border-radius:5px;
+}
+.tree:after {
+content:'';
+width:105%;
+height:105%;
+background:radial-gradient(circle,#527136 2px, transparent 2px);
+background-size:5px 5px;
+background-position:0 0;
+position:absolute;
+left:-2.5%;
+top:-2.5%;
+transform:rotate(-60deg);
+border-radius:5px;
+}
+
+.tree:nth-child(6) {
+transform:translateY(-20%) rotate(45deg);
+}
+.tree:nth-child(9) {
+transform:translateY(10%) rotate(45deg);
+}
+.tree:nth-child(10) {
+transform:translateY(-20%);
+}
+
+.big_bush {
+width:35px;
+height:20px;
+background:#3e4a48;
+background-size:5px 5px;
+border-radius:5px;  
+transform:scale(3);
+top:72.5%;
+left:30%;
+
+}
+.big_bush:before {
+content:'';
+width:110%;
+height:110%;
+background:radial-gradient(circle,#7f9f3c 1px, transparent 1px);
+background-size:3px 3px;
+background-position:1.5px 1.5px;
+position:absolute;
+left:-5%;
+top:-5%;
+border-radius:5px; 
+transform:rotate(-5deg);
+}
+.big_bush:after {
+content:'';
+width:110%;
+height:110%;
+background:radial-gradient(circle,#527136 1px, transparent 1px);
+background-size:3px 3px;
+background-position:0 0;
+position:absolute;
+left:-5%;
+top:-5%;
+border-radius:5px; 
+transform:rotate(5deg);
+}
+
+.castle_hill {
+width:100%;
+height:50%;
+background:#5a8672;
+bottom:0;
+clip-path:polygon(0% 30%, 40% 25%, 55% 5%, 60% 0%, 70% 5%, 80% 30%, 100% 50%, 100% 100%, 0% 100%);
+}
+
+.big_tree {
+width:40%;
+height:100%;
+background:#292823;
+clip-path:polygon(0% 0%, 10% 0%, 10% 19%, 12.5% 17.5%, 12.5% 0%, 15% 0%, 15% 11.5%, 17.5% 10%, 17.5% 0%, 20% 0%, 20% 3.75%, 22.5% 2.5%, 22.5% 0%, 25% 0%, 25% 2.5%, 20% 5%, 20% 12.5%, 15% 15%, 15% 22.5%, 10% 25%, 10% 64%, 35% 75%, 0% 80%);
+}
+.big_tree:before {
+content:'';
+width:100%;
+height:100%;
+position:absolute;
+left:-10%;
+top:0%;  
+background:#608597;
+opacity:.25;
+clip-path:polygon(0% 0%, 10% 0%, 10% 19%, 12.5% 17.5%, 12.5% 0%, 15% 0%, 15% 11.5%, 17.5% 10%, 17.5% 0%, 20% 0%, 20% 3.75%, 22.5% 2.5%, 22.5% 0%, 25% 0%, 25% 2.5%, 20% 5%, 20% 12.5%, 15% 15%, 15% 22.5%, 10% 25%, 10% 64%, 35% 75%, 0% 80%);
+}
+.grass.eleven {
+left:5%;
+top:55%;
+}
+.grass.twelve {
+left:2%;
+top:60%;
+background:#303e5b;
+}
+.grass.twelve:before,.grass.twelve:after {
+border-color:#303e5b;
+} 
+
+.rock_right_under {
+width:33%;
+height:55%;
+background:linear-gradient(to top right,#52403c, transparent 50%), #5a4542;
+bottom:0;
+right:0;
+clip-path:polygon(70% 0%, 100% 20%, 100% 100%, 2% 100%, 0% 75%, 55% 75%, 60% 40%, 65% 35%);
+}
+
+.rock_left_under {
+width:33%;
+height:55%;
+background:linear-gradient(to top left,#52403c, transparent 40%), #734842;
+bottom:0;
+left:0;
+clip-path:polygon(0% 50%, 5% 45%, 15% 40%, 50% 10%, 100% 0%, 85% 100%, 0% 100%);
+}
+
+.roots {
+width:100%;
+height:100%;
+background:#3e3a37;
+clip-path:polygon(99% 0%, 96% 49%, 87% 66%, 89% 100%, 82% 100%, 84% 62%, 91% 46%, 92% 0%, 85% 0%, 85% 25%, 87% 44%, 80% 60%, 77% 100%, 70% 100%, 78% 56%, 84% 36%, 78% 24%, 72% 46%, 73% 69%, 64% 100%, 56% 100%, 68% 65%, 64% 46%, 76% 17%, 69% 0%, 59% 0%, 62% 34%, 56% 46%, 57% 71%, 50% 100%, 41% 100%, 52% 68%, 52% 44%, 56% 29%, 49% 0%, 36% 0%, 49% 30%, 35% 56%, 46% 76%, 30% 100%, 22% 100%, 40% 72%, 27% 56%, 44% 30%, 26% 0, 21% 11%, 35% 23%, 36% 35%, 21% 55%, 24% 72%, 20% 93%, 14% 100%, 6% 100%, 17% 76%, 14% 61%, 20% 49%, 32% 30%, 14% 9%, 15% 0);
+}
+.rock_left_under .roots {
+opacity:.5;
+}
+.rock_right_under .roots {
+opacity:.75;
+}
+
+.rock_right {
+width:33%;
+height:55%;
+background:radial-gradient(circle,#2a3a4a, transparent 2px), #252722;
+background-size:7.5px 7.5px;
+bottom:0;
+right:0;
+clip-path:polygon(70% 0%, 100% 20%, 100% 100%, 25% 100%, 25% 95%, 20% 90%, 10% 85%, 15% 80%, 0% 75%, 80% 75%, 90% 70%, 90% 60%, 75% 35%);
+}
+
+.rock_left {
+width:33%;
+height:55%;
+background:radial-gradient(circle,#2a3a4a, transparent 2px), #252722;
+background-size:7.5px 7.5px;
+bottom:0;
+left:0;
+clip-path:polygon(0% 50%, 5% 45%, 15% 40%, 50% 10%, 100% 0%, 60% 60%, 65% 70%, 55% 80%, 60% 75%, 25% 85%, 15% 100%, 0% 100%);
+}
+
+.wheat {
+width:50px;
+height:100px;
+background:#252722;
+clip-path:polygon(50% 0%, 57% 7%, 51% 13%, 52% 18%, 74% 14%, 95% 16%, 76% 22%, 52% 21%, 51% 27%, 74% 26%, 90% 32%, 69% 33%, 51% 30%, 51% 40%, 67% 38%, 93% 43%, 67% 46%, 50% 43%, 49% 56%, 69% 53%, 92% 55%, 75% 62%, 49% 60%, 50% 72%, 72% 68%, 92% 69%, 75% 76%, 50% 75%, 52% 100%, 44% 100%, 46% 76%, 23% 79%, 9% 73%, 29% 69%, 47% 70%, 46% 60%, 28% 64%, 10% 58%, 29% 55%, 45% 58%, 47% 44%, 23% 48%, 3% 42%, 27% 41%, 43% 42%, 47% 39%, 48% 31%, 27% 31%, 8% 23%, 34% 24%, 47% 29%, 48% 20%, 20% 16%, 11% 8%, 33% 12%, 48% 17%, 40% 8%);
+transform-origin:bottom center;
+}
+
+.wheat.one {
+left:22%;
+top:23%;
+transform:scale(.75);
+}
+.wheat.two {
+left:25%;
+top:23%;
+transform:scale(.6);
+}
+.wheat.three {
+left:14%;
+top:33%;
+transform:scale(.75);
+}
+.wheat.four {
+width:25px;
+left:89%;
+top:22%;
+transform:scale(.75);
+}
+.wheat.five {
+left:90%;
+top:30%;
+transform:scale(.75);
+}
+.wheat.six {
+left:97%;
+top:35%;
+transform:scale(.75);
+}
+
+.wheat.seven {
+left:-10%;
+top:60%;
+transform:rotate(100deg) scale(.75);
+background:#425e9d;
+}
+.wheat.eight {
+left:85%;
+top:77%;
+transform:rotate(-45deg) scale(.75);
+background:#425e9d;
+}
+.wheat.nine {
+left:95%;
+top:77%;
+transform:rotate(-45deg) scale(1);
+background:#425e9d;
+}
+
+.grass {
+width:2px;
+height:50px;
+background:#252722;
+border-radius:50%;
+position:absolute;
+
+}
+.grass:before {
+content:'';
+height:100%;
+width:50px;
+border-radius:inherit;
+position:absolute;
+left:5px;
+top:10px;
+border-radius:50%;
+border-top:2px solid #252722;
+transform:rotate(-45deg);
+}
+.grass:after {
+content:'';
+height:100%;
+width:50px;
+border-radius:inherit;
+position:absolute;
+left:0;
+top:10px;
+border-radius:50%;
+border-top:2px solid #252722;
+transform:translateX(-105%) rotate(45deg);
+}
+
+.grass.one {
+left:22%;
+top:39%;
+}
+.grass.two {
+left:16%;
+top:43%;
+transform:rotate(-45deg);
+}
+.grass.three {
+left:29%;
+top:36%;
+transform:rotate(45deg);
+}
+.grass.four {
+left:29%;
+top:39%;
+transform:rotate(0deg);
+}
+.grass.five {
+left:29%;
+top:40%;
+transform:rotate(45deg);
+}
+
+.grass.six {
+left:98%;
+top:45%;
+}
+.grass.seven {
+left:92%;
+top:40%;
+transform:rotate(-45deg);
+}
+.grass.eight {
+left:92%;
+top:40%;
+}
+
+.grass.nine {
+left:92%;
+top:90%;
+background:#303e5b;
+transform:scale(2);
+}
+.grass.ten {
+left:3%;
+top:87%;
+background:#303e5b;
+transform:rotate(45deg) scale(2);
+}
+.grass.nine:before, .grass.nine:after,
+.grass.ten:before, .grass.ten:after{
+border-color:#303e5b;
+} 
+
+.flag {
+width:1px;
+height:25px;
+background:lightblue;  
+}
+.flag:after {
+content:'';
+width:7px;
+height:7px;
+background:#d08d62;
+position:absolute;
+left:100%;
+top:2px;
+}
+
+.flag.one {
+left:60.25%;
+top:2%;
+}
+.flag.two {
+left:51.25%;
+top:9%;
+}
+.flag.three {
+left:76.75%;
+top:33%;
+}
+
+.bushes {
+/*   width:40px; */
+height:2px;
+border-top:2px dotted #4c745a;
+border-radius:50% 50% 0 0;  
+}
+
+.bushes.one {
+width:45px;
+border-width:3px;
+left:61%;
+top:50.5%;
+transform:rotate(8deg);
+}
+
+.bushes.two {
+width:45px;
+border-width:4px;
+left:45%;
+top:58%;
+transform:rotate(-25deg);
+}
+.bushes.three {
+width:25px;
+border-width:5px;
+left:53%;
+top:65%;
+transform:rotate(-20deg);
+}
+.bushes.four {
+width:25px;
+height:45px;
+border-width:4px;
+left:53.5%;
+top:53%;
+transform:rotate(25deg);
+border-radius:35%;
+}
